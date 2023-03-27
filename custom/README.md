@@ -21,7 +21,7 @@ Output folder must be created first.
 
 ### Custom dataset training
 - Create your own config file. Inherit from one of the given ones and add an entry for `DATASETS.TRAIN` and `DATASETS.TEST`
-- Modify train_net.py to set up the config for your custom dataset
+- Modify custom_dataset.py to set up the config for your custom dataset. It's imported into train_net.py and demo.py
 ```
 ./train_net.py --config-file config.yaml --num-gpus 1 SOLVER.IMS_PER_BATCH 2 SOLVER.BASE_LR 0.0025
 ```
