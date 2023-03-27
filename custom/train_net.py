@@ -38,10 +38,8 @@ from detectron2.evaluation import (
 )
 from detectron2.modeling import GeneralizedRCNNWithTTA
 
-# setup your custom dataset
-from detectron2.data.datasets import register_coco_instances
-register_coco_instances("car_damage_train", {}, "car_damage_dataset/train/COCO_mul_train_annos.json", "car_damage_dataset/train")
-register_coco_instances("car_damage_val", {}, "car_damage_dataset/val/COCO_mul_val_annos.json", "car_damage_dataset/val")
+# add and configure our custom dataset
+from custom_dataset import *
 
 
 def build_evaluator(cfg, dataset_name, output_folder=None):
