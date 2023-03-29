@@ -12,11 +12,11 @@ docker run --gpus all -it --shm-size 8gb --env "DISPLAY" --volume "C:\Users\HTX 
 Output folder must be created first.
 - Instance Segmentation
     ```
-    python demo.py --config-file ~/detectron2_repo/configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml --input car_damage_dataset/train/10.jpg --output demo_output --opts MODEL.WEIGHTS detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl
+    python ~/detectron2_repo/demo/demo.py --config-file ~/detectron2_repo/configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml --input car_damage_dataset/train/10.jpg --output demo_output --opts MODEL.WEIGHTS detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl
     ```
 - Object Detection
     ```
-    python demo.py --config-file ~/detectron2_repo/configs/COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml --input car_damage_dataset/train/10.jpg --output demo_output --opts MODEL.WEIGHTS detectron2://COCO-Detection/faster_rcnn_R_50_FPN_3x/137849458/model_final_280758.pkl
+    python ~/detectron2_repo/demo/demo.py --config-file ~/detectron2_repo/configs/COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml --input car_damage_dataset/train/10.jpg --output demo_output --opts MODEL.WEIGHTS detectron2://COCO-Detection/faster_rcnn_R_50_FPN_3x/137849458/model_final_280758.pkl
     ```
 
 ### Custom dataset training
@@ -31,6 +31,8 @@ Output folder must be created first.
 ```
 
 ### Inferences using custom trained model
+Output folder must be created first.
 ```
-python demo.py --config-file config.yaml --input car_damage_dataset/val/*.jpg --output demo_output --opts MODEL.WEIGHTS output/model_final.pth
+python inference.py --config-file config.yaml --input car_damage_dataset/test/*.jpg --output inference_test_output --opts MODEL.WEIGHTS output/model_final.pth
 ```
+The script outputs images with masks and bounding boxes, as well as .pt files containing the raw data of the predictions. Details of the prediction data format can be found [here](https://detectron2.readthedocs.io/en/latest/tutorials/models.html#model-output-format).
