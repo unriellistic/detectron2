@@ -1,0 +1,11 @@
+_BASE_: "/home/appuser/detectron2_repo/projects/TridentNet/configs/Base-TridentNet-Fast-C4.yaml"
+MODEL:
+  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+  MASK_ON: False
+  RESNETS:
+    DEPTH: 50
+DATASETS:
+  TRAIN: ("car_damage_train",)
+  TEST: ("car_damage_val",)
+SOLVER:
+  MAX_ITER: 2000
